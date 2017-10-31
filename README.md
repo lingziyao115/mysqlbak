@@ -25,6 +25,9 @@ Use crontab on Linux.
 
 `30 12,18 * * * /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
 
+## Author
+
+[Eric](http://www.joycc.cn)
 
 ------------------
 
@@ -50,3 +53,7 @@ crontab.log ---------- Crontab 日志文件
 
 ### 设置 crontab 自动执行
 `30 12,18 * * * /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
+
+## 作者
+
+[养草的人](http://www.joycc.cn)

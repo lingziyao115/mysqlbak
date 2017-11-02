@@ -23,7 +23,7 @@ Then modify the mysql connect configure and backup settings.
 
 Use crontab on Linux.
 
-`30 12,18 * * * /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
+`30 12,18 * * * /bin/bash /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
 
 ## Author
 
@@ -50,7 +50,7 @@ crontab.log ---------- Cron 日志文件
 将样例配置文件复制一份，命名为 backup.conf，修改其中的数据库连接配置和备份配置。
 
 ### 设置 crontab 自动执行
-`30 12,18 * * * /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
+`30 12,18 * * * /bin/bash /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
 
 ## 作者
 

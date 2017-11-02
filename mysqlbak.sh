@@ -7,6 +7,7 @@ DEFAULTS_EXTRA_FILE=$SCRIPT_DIR/$CONFIG_FILE
 DB_NAMES=$(grep db_names $CONFIG_FILE | cut -d= -f2)
 DB_NAMES_ARR=(${DB_NAMES//,/ })
 BACKUP_DIR=$(grep backup_dir $CONFIG_FILE | cut -d= -f2)
+BACKUP_DAYS=$(echo $(grep backup_days $CONFIG_FILE | cut -d= -f2))
 MYSQLDUMP_CMD=$(grep mysqldump_cmd $CONFIG_FILE | cut -d= -f2)
 
 DATE=`date +%Y%m%d`
@@ -27,4 +28,5 @@ do
 done
 echo "End!"
 
-#find $BACKUP_DIR -name '*.sql.gz'  -ctime +7 | xargs rm -f > /dev/null 2>&1
+# delete the backup files before n days
+find $BACKUP_DIR -type d -ctime +$BACKUP_DAYS | xargs rm -rf > /dev/null 2>&1

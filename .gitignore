@@ -1,3 +1,5 @@
 crontab.log
-.idea
-bak
+backup.conf
+
+.idea/
+bak/

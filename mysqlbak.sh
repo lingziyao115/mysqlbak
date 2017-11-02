@@ -22,7 +22,7 @@ do
     fi
 
     echo -n "  BACKUP $DB_NAME ... "
-    $MYSQLDUMP_CMD --defaults-extra-file=$DEFAULTS_EXTRA_FILE $DB_NAME | gzip > $TODAY_DIR/$DB_NAME.$TIME.sql.gz
+    $MYSQLDUMP_CMD --defaults-extra-file=$DEFAULTS_EXTRA_FILE --triggers --routines --events $DB_NAME | gzip > $TODAY_DIR/$DB_NAME.$TIME.sql.gz
     echo "[OK]"
 done
 echo "End!"

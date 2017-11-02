@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# Backup Config
-BACKUP_DIR=/root/bak/mysql
-MYSQLDUMP_CMD=/usr/bin/mysqldump
-
+CONFIG_FILE=backup.conf
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-DEFAULTS_EXTRA_FILE=$SCRIPT_DIR/mysql_backup.conf
-DB_NAMES_FILE=$SCRIPT_DIR/db_names.txt
+DEFAULTS_EXTRA_FILE=$SCRIPT_DIR/$CONFIG_FILE
+
+DB_NAMES=$(grep db_names $CONFIG_FILE | cut -d= -f2)
+DB_NAMES_ARR=(${DB_NAMES//,/ })
+BACKUP_DIR=$(grep backup_dir $CONFIG_FILE | cut -d= -f2)
+MYSQLDUMP_CMD=$(grep mysqldump_cmd $CONFIG_FILE | cut -d= -f2)
 
 DATE=`date +%Y%m%d`
 TIME=`date +%H%M%S`
 
-DB_NAMES=$(cat "$DB_NAMES_FILE")
 echo "[$DATE$TIME]"
 echo "Starting ..."
-for DB_NAME in $DB_NAMES
+for DB_NAME in ${DB_NAMES_ARR[@]}
 do
     TODAY_DIR=$BACKUP_DIR/$DATE
     if [ ! -d $TODAY_DIR ]; then

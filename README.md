@@ -1,5 +1,5 @@
 # mysqlbak
-An auto backup script for MySQL with crontab.
+An auto backup script for MySQL with crond.
 
 ## File Structure
 
@@ -32,7 +32,7 @@ Use crontab on Linux.
 ------------------
 
 # mysqlbak
-一款自动备份 MySQL 数据库的脚本程序，通过 cron 定时备份。
+一款自动备份 MySQL 数据库的脚本程序，通过 crond 定时备份。
 
 ## 文件结构
 

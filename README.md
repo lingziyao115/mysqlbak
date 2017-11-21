@@ -21,13 +21,13 @@ Then modify the mysql connection configure and backup settings.
 
 ### Auto Run The Script
 
-Use crond on Linux, type the following command
+Use crond on Linux, issue the following command
 
 ```shell
 crontab -e
 ```
 
-Then edit this file as `vi`, the following instruction will execute at 12:30 and 18:30 every day.
+Then edit this file like `vi` style, the following instruction will execute at 12:30 and 18:30 every day.
 
 `30 12,18 * * * /bin/bash /path/to/mysqlbak/mysqlbak.sh >> /path/to/mysqlbak/crontab.log`
 
